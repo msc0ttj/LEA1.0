@@ -1,4 +1,4 @@
-LEA1.0
+LEA1.0 | Scott Jordan
 ======
 
 Logarithmic Encryption Algorithm v1.0
@@ -9,4 +9,19 @@ It work on the principal that log<sub>MESSAGE</sub>KEY is a decimal number that 
 
 To decrypt it, simply put the KEY to the power of (1 / ENCRYPTED_MESSAGE).
 
-Code by: Scott Jordan
+=======================================
+to compile on linux:
+
+# cd to directory
+
+g++ -o encrypt ./encrypt.cpp
+
+g++ -o decrypt ./decrypt.cpp
+
+then run them by:
+
+./encrypt
+
+    OR
+    
+./decrypt
