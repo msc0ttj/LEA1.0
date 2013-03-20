@@ -10,9 +10,9 @@ It work on the principal that log<sub>MESSAGE</sub>KEY is a decimal number that 
 To decrypt it, simply put the KEY to the power of (1 / ENCRYPTED_MESSAGE).
 
 =======================================
-to compile on linux:
+# to compile on linux:
 
-# cd to directory
+cd to directory
 
 g++ -o encrypt ./encrypt.cpp
 
