@@ -27,7 +27,7 @@ int main() {
 	double encrypted[strsz];
 
 	ofstream output;
-	output.open ("encrypted.lgc", ios::trunc);
+	output.open ("encrypted.lea", ios::trunc);
 	output.close();
 
 
