@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <iomanip>
 #include <fstream>
 
 using namespace std;
 
 int main() {
 
-  std::string input;
+	std::string input;
 	cout << "Message: ";
 	getline(cin, input);
 
@@ -15,8 +16,9 @@ int main() {
 	cout << "Encryption Key: ";
 	cin >> pubkey;
 
+	int oscillate = 0;
 
-	int privkey = 37;
+	int privkey = 3751;
 	double key = pubkey * privkey;
 	double logkey = log(key);
 
@@ -27,6 +29,8 @@ int main() {
 	double encrypted[strsz];
 
 	ofstream output;
+
+	output.precision(100);
 	output.open ("encrypted.lea", ios::trunc);
 	output.close();
 
@@ -35,6 +39,7 @@ int main() {
 	for (int i = 0; i < input.size(); i++){
 
 		intstr[i] = input[i];
+
 
 switch (input[i])
 {
@@ -146,16 +151,29 @@ case 'Y':
         intstr[i] = 51; break;
 case 'Z':
         intstr[i] = 52; break;
-
+case '.':
+	intstr[i] = 53; break;
+case ',':
+	intstr[i] = 54; break;
 
 }
+intstr[i] = intstr[i] + 100000;
+if (oscillate <= 250) {
+
 intstr[i] = intstr[i] + i;
+oscillate++;
+}
+else
+{
+oscillate = 0;
+intstr[i] = intstr[i] + 1;
+}
 cout << intstr[i] << "     ";
 dubstr[i] = double(intstr[i]);
 
 encrypted[i] = logkey / log(dubstr[i]);
 
-cout << encrypted[i] << "\n";
+cout << setprecision(100) << encrypted[i] << "\n";
 
 
 output.open ("encrypted.lea", ios::out | ios::app);
