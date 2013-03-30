@@ -71,7 +71,7 @@ cout << "Debug Code: 2\n";
 		adjust[i] = rawnums[i] - i;
 		//cout << adjust[i] << "\n\n";
 
-
+adjust[i] = adjust[i] - 100000;
 switch (adjust[i])
 {
 case 0:
